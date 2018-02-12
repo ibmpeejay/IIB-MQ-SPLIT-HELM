@@ -22,7 +22,7 @@ dataPVC:
   # name sets part of the name for this Persistent Volume Claim
   name: "data"
   ## storageClassName is the name of the Storage Class to use, or an empty string for no Storage Class
-  storageClassName: "sharednfs"
+  storageClassName: ""
   ## Persitent Volume Claim Name already bound to the nfs volume
   storageClaimName: "sharednfs"
   ## size is the minimum size of the Persistent Volume
