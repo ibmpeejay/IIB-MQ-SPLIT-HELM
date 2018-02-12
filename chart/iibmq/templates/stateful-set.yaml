@@ -102,7 +102,7 @@ spec:
       # Disable dynamic provisioning
       storageClassName: ""
       {{- end }}
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: [ "ReadWriteMany" ]
       resources:
         requests:
           storage: {{ .Values.dataPVC.size | quote }}
