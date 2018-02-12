@@ -103,7 +103,7 @@ spec:
       storageClassName: ""
       {{- end }}
       accessModes: [ "ReadWriteMany" ]
-      persistentVolumeClaim: {{ .Values.dataPVC.storageClaimName }}
+      
       resources:
         requests:
           storage: {{ .Values.dataPVC.size | quote }}
