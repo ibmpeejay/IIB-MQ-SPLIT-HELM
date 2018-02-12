@@ -23,8 +23,10 @@ dataPVC:
   name: "data"
   ## storageClassName is the name of the Storage Class to use, or an empty string for no Storage Class
   storageClassName: "sharednfs"
+  ## Persitent Volume Claim Name already bound to the nfs volume
+  storageClaimName: "sharednfs"
   ## size is the minimum size of the Persistent Volume
-  size: 2Gi
+  size: 5Gi
 
 service:
   name: iibmq
