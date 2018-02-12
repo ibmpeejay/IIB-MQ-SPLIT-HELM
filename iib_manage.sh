@@ -73,7 +73,7 @@ config()
     fi
     echo "----------------------------------------"
   fi
-  strmqm ${MQ_QMGR_NAME}
+  strmqm -x ${MQ_QMGR_NAME}
   # do this is a nice obvious place for now - enable client authorized connection
   useradd davearno -G mqm && \
     echo davearno:passw0rd | chpasswd
