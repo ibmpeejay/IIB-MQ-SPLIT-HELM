@@ -109,7 +109,7 @@ spec:
           storage: {{ .Values.dataPVC.size | quote }}
       selector: 
         matchLabels: 
-          selector: nfs1
+          locater: nfs1
           
   {{- end }}
 
