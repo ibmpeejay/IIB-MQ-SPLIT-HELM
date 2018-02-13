@@ -107,9 +107,7 @@ spec:
       resources:
         requests:
           storage: {{ .Values.dataPVC.size | quote }}
-      selector: 
-        matchLabels: 
-          locater: nfs1
+      
           
   {{- end }}
 
