@@ -83,7 +83,7 @@ spec:
             requests:
 {{ toYaml .Values.resources.requests | indent 14 }}
       volumes:
-    - name: nfsvol
+    - name: "{{ template "fullname" . }}-{{ .Values.dataPVC.name }}"
       persistentVolumeClaim:
         claimName: nfs-pvc
   
