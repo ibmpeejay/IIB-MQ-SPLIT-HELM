@@ -92,7 +92,9 @@ config()
 
 state()
 {
+  dspmq -n -m ${MQ_QMGR_NAME}
   dspmq -n -m ${MQ_QMGR_NAME} | awk -F '[()]' '{ print $4 }'
+  
 }
 
 
