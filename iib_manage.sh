@@ -15,7 +15,12 @@ export HOST_NAME=IIBDOCKER
 
 
 
-
+state()
+{
+  dspmq -n -m ${MQ_QMGR_NAME}
+  dspmq -n -m ${MQ_QMGR_NAME} | awk -F '[()]' '{ print $4 }'
+  
+}
 stop()
 {
 	echo "----------------------------------------"
@@ -96,12 +101,7 @@ config()
   echo "----------------------------------------"
 }
 
-state()
-{
-  dspmq -n -m ${MQ_QMGR_NAME}
-  dspmq -n -m ${MQ_QMGR_NAME} | awk -F '[()]' '{ print $4 }'
-  
-}
+
 
 
 start()
