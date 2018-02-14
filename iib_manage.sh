@@ -73,6 +73,7 @@ config()
     fi
     echo "----------------------------------------"
   fi
+  echo "starting queue manager"
   strmqm -x ${MQ_QMGR_NAME}
   # do this is a nice obvious place for now - enable client authorized connection
   useradd davearno -G mqm && \
