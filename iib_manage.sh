@@ -84,7 +84,8 @@ config()
     runmqsc ${MQ_QMGR_NAME} < ${MQSC_FILE}
   done
   set -e
-
+  echo "Got to this point - about to run mq-dev-config.sh"
+  state
   echo "----------------------------------------"
   mq-dev-config.sh ${MQ_QMGR_NAME}
   echo "----------------------------------------"
