@@ -73,19 +73,23 @@ config()
     fi
     echo "----------------------------------------"
   fi
-  echo "starting queue manager"
+  
   strmqm -x ${MQ_QMGR_NAME}
   # do this is a nice obvious place for now - enable client authorized connection
   useradd davearno -G mqm && \
     echo davearno:passw0rd | chpasswd
   # and added the client auth to the dadefs.mqsc file   
+  # If we have come up in a standby state no point going any further - just loop waiting to resume
+  until [ "`state`" == "RUNNING" ]; do
+    sleep 1
+  done
   # Turn off script failing here because of listeners failing the script
   set +e
   for MQSC_FILE in $(ls -v /etc/mqm/*.mqsc); do
     runmqsc ${MQ_QMGR_NAME} < ${MQSC_FILE}
   done
   set -e
-  echo "Got to this point - about to run mq-dev-config.sh"
+  
   state
   echo "----------------------------------------"
   mq-dev-config.sh ${MQ_QMGR_NAME}
