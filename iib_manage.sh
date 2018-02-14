@@ -17,7 +17,9 @@ export HOST_NAME=IIBDOCKER
 
 state()
 {
-  dspmq -n -m ${MQ_QMGR_NAME}
+  ISRUNNING=`dspmq -n -m ${MQ_QMGR_NAME}`
+  echo **$ISRUNNING**
+  
   dspmq -n -m ${MQ_QMGR_NAME} | awk -F '[()]' '{ print $4 }'
   
 }
