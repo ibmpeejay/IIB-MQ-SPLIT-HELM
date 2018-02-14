@@ -80,8 +80,10 @@ config()
     fi
     echo "----------------------------------------"
   fi
-  
+  # Stops a 'queue manager running' return code of 31 killing the script.....
+  set +e
   strmqm -x ${MQ_QMGR_NAME}
+  set -e
   # do this is a nice obvious place for now - enable client authorized connection
   useradd davearno -G mqm && \
     echo davearno:passw0rd | chpasswd
