@@ -81,9 +81,9 @@ config()
   fi
   # Stops a 'queue manager running' return code of 31 killing the script.....
   set +e
-  MQSTARTUPERRROR=`strmqm -x ${MQ_QMGR_NAME} > /dev/null ; echo $?`
-  until [ ${MQSTARTUPERROR} -ne 47 ]; do
-  	MQSTARTUPERRROR=`strmqm -x ${MQ_QMGR_NAME} > /dev/null ; echo $?`
+  MQ_STARTUP_ERROR=`strmqm -x ${MQ_QMGR_NAME} > /dev/null ; echo $?`
+  until [ ${MQ_STARTUP_ERROR} -ne 47 ]; do
+  	MQ_STARTUP_ERROR=`strmqm -x ${MQ_QMGR_NAME} > /dev/null ; echo $?`
   done
   # strmqm -x ${MQ_QMGR_NAME}
   set -e
