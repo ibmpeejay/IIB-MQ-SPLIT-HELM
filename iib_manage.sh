@@ -71,6 +71,7 @@ config()
       # Turns on early adopt if we're using Developer defaults
       export AMQ_EXTRA_QM_STANZAS=Channels:ChlauthEarlyAdopt=Y
     fi
+    
     crtmqm -q ${MQ_QMGR_NAME} || true
     if [ ${MQ_QMGR_CMDLEVEL+x} ]; then
       # Enables the specified command level, then stops the queue manager
@@ -80,7 +81,11 @@ config()
   fi
   # Stops a 'queue manager running' return code of 31 killing the script.....
   set +e
-  strmqm -x ${MQ_QMGR_NAME}
+  MQSTARTUPERRROR=`strmqm -x ${MQ_QMGR_NAME} > /dev/null ; echo $?`
+  until [ ${MQSTARTUPERROR} -ne 47 ]; do
+  	MQSTARTUPERRROR=`strmqm -x ${MQ_QMGR_NAME} > /dev/null ; echo $?`
+  done
+  # strmqm -x ${MQ_QMGR_NAME}
   set -e
   # do this is a nice obvious place for now - enable client authorized connection
   useradd davearno -G mqm && \
