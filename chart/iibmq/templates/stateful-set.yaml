@@ -85,7 +85,7 @@ spec:
       volumes:
       - name: "{{ template "fullname" . }}-{{ .Values.dataPVC.name }}"
         persistentVolumeClaim:
-          claimName: nfs-pvc
+          claimName: nfs-vol
   
 
 
