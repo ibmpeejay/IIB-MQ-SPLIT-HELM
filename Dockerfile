@@ -1,4 +1,4 @@
-# © Copyright IBM Corporation 2015.
+# Â© Copyright IBM Corporation 2015.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
@@ -40,7 +40,7 @@ RUN apt-get dist-upgrade -y
 
 #Install MQ
 
-ARG MQ_URL=http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/messaging/mqadv/mqadv_dev903_linux_x86-64.tar.gz
+ARG MQ_URL=http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/messaging/mqadv/mqadv_dev904_linux_x86-64.tar.gz
 ARG MQ_PACKAGES="MQSeriesRuntime-*.rpm MQSeriesServer-*.rpm MQSeriesMsg*.rpm MQSeriesJava*.rpm MQSeriesJRE*.rpm MQSeriesGSKit*.rpm MQSeriesWeb*.rpm"
 
 RUN mkdir -p /tmp/mq \
